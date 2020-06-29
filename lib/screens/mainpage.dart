@@ -153,9 +153,9 @@ class _MainPageState extends State<MainPage> {
             Spacer(),
             Row(
               children: <Widget>[
-                Icon(OMIcons.cloud, color: Colors.blue,),
+                Icon(OMIcons.cloud, color: Colors.deepOrangeAccent,),
                 SizedBox(width: 10,),
-                Text('Clear', style: TextStyle(fontSize: 20, color: Colors.white))
+                Text('Toxic', style: TextStyle(fontSize: 20, color: Colors.white))
               ],
             )
           ],

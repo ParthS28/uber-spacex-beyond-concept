@@ -16,6 +16,9 @@ class _EarthPageState extends State<EarthPage> {
     'images/rocket.jpg',
     'images/greenspace.jpeg'
   ];
+  List<String> price = ['1200', '1500', '1000'];
+  List<String> time = ['22', '16', '23'];
+  List<String> distance = ['2', '2.5', '3'];
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -65,7 +68,7 @@ class _EarthPageState extends State<EarthPage> {
                     itemCount: 3,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (BuildContext context, int index) {
-                      return buildOptions(options[index], img[index]);
+                      return buildOptions(options[index], img[index], price[index], time[index], distance[index]);
                     },
                   )),
             )
@@ -77,7 +80,7 @@ class _EarthPageState extends State<EarthPage> {
     );
   }
 
-  Widget buildOptions(String option, String img) {
+  Widget buildOptions(String option, String img, String price, String est, String dist) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return GestureDetector(
@@ -135,7 +138,7 @@ class _EarthPageState extends State<EarthPage> {
                                   borderRadius: BorderRadius.circular(20)),
                               child: Padding(
                                   padding: EdgeInsets.only(left: 10, right: 10),
-                                  child: Text('\$300')),
+                                  child: Text('\$$price')),
                             ),
                           ),
                           Spacer(),
@@ -148,7 +151,7 @@ class _EarthPageState extends State<EarthPage> {
                               child: Padding(
                                 padding: EdgeInsets.only(left: 10, right: 10),
                                 child: Text(
-                                  '60 km',
+                                  '$dist ly',
                                   style: TextStyle(color: Color(0xff6CF3E0)),
                                 ),
                               ),
@@ -163,7 +166,7 @@ class _EarthPageState extends State<EarthPage> {
                                   borderRadius: BorderRadius.circular(10)),
                               child: Padding(
                                   padding: EdgeInsets.only(left: 10, right: 10),
-                                  child: Text('45 mins')),
+                                  child: Text('$est mins')),
                             ),
                           ),
                           Spacer(),

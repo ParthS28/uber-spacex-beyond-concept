@@ -13,6 +13,9 @@ class _JupiterPageState extends State<JupiterPage> {
     'images/rocket.jpg',
     'images/greenspace.jpeg'
   ];
+  List<String> price = ['2500', '3500', '2100'];
+  List<String> time = ['80', '71', '69'];
+  List<String> distance = ['6', '7', '5.5'];
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -62,7 +65,7 @@ class _JupiterPageState extends State<JupiterPage> {
                         itemCount: 3,
                         scrollDirection: Axis.vertical,
                         itemBuilder: (BuildContext context, int index) {
-                          return buildOptions(options[index], img[index]);
+                          return buildOptions(options[index], img[index], price[index], time[index], distance[index]);
                         },
                       )),
                 )
@@ -74,7 +77,7 @@ class _JupiterPageState extends State<JupiterPage> {
     );
   }
 
-  Widget buildOptions(String option, String name) {
+  Widget buildOptions(String option, String img, String price, String est, String dist) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return GestureDetector(
@@ -107,7 +110,7 @@ class _JupiterPageState extends State<JupiterPage> {
               Row(
                 children: <Widget>[
                   Image(
-                    image: AssetImage(name),
+                    image: AssetImage(img),
                     height: 50,
                     width: (width - 30) * 0.33,
                   ),
@@ -130,7 +133,7 @@ class _JupiterPageState extends State<JupiterPage> {
                               decoration: BoxDecoration(
                                   color: Colors.greenAccent,
                                   borderRadius: BorderRadius.circular(20)),
-                              child: Padding(padding:EdgeInsets.only(left: 10, right: 10),child: Text('\$300')),
+                              child: Padding(padding:EdgeInsets.only(left: 10, right: 10),child: Text('\$$price')),
                             ),
                           ),
                           Spacer(),
@@ -143,7 +146,7 @@ class _JupiterPageState extends State<JupiterPage> {
                               child: Padding(
                                 padding: EdgeInsets.only(left: 10, right: 10),
                                 child: Text(
-                                  '60 km',
+                                  '$dist ly',
                                   style: TextStyle(color: Color(0xff6CF3E0)),
                                 ),
                               ),
@@ -156,7 +159,7 @@ class _JupiterPageState extends State<JupiterPage> {
                               decoration: BoxDecoration(
                                   color: Colors.blueGrey,
                                   borderRadius: BorderRadius.circular(10)),
-                              child: Padding(padding: EdgeInsets.only(left: 10, right: 10),child: Text('45 mins')),
+                              child: Padding(padding: EdgeInsets.only(left: 10, right: 10),child: Text('$est mins')),
                             ),
                           ),
                           Spacer(),
